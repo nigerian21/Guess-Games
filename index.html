@@ -1,0 +1,55 @@
+<!doctype <!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Can you guess the word?</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+
+</head>
+
+<body>
+    <script>
+
+
+        $(document).ready(function () {
+            //Words that the computer can choose from
+            var wordArr = ["cat", "dog", "bat", "car", "bar", "far"];
+
+
+            //This tells computer chose random word from above
+            var word = wordArr[Math.floor(Math.random() * wordArr.length)];
+            for (i = 0; i < wordArr.length; i++) {
+                underscores = underscores + "_ "
+            }
+
+            //form is lnked to java script
+            $("#buttonguess").on("click", function () {
+                var letter = $("#letter").val();
+
+            });
+
+            function letterinword(c) {
+                if
+
+         }
+
+        });
+
+
+
+
+
+
+    </script>
+    <h1>Guess a letter</h1>
+    <input id="letter" type="text">
+    <input type="button" value="Guess" id="buttonguess">
+    <p class"answer"></p>
+    <p class"counter"></p>
+    <p class"stats"></p>
+
+</body>
+
+</html>
