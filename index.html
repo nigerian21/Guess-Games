@@ -6,34 +6,54 @@
     <title>Can you guess the word?</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
-
+    <script src="https://code.jquery.com/jquery.js"></script>
 </head>
 
 <body>
-    <script>
+
+        <h1>Guess a letter</h1>
+        <input id="letter" type="text">
+        <input type="button" value="Guess" id="buttonguess">
+        <p class="answer"></p>
+        <p class="answer"></p>
+        <p class="answer"></p>
+        <h1 id="guessword"></h1>
+    
+    
+        <script>
 
 
         $(document).ready(function () {
             //Words that the computer can choose from
             var wordArr = ["cat", "dog", "bat", "car", "bar", "far"];
-
+            var underscores = "";
 
             //This tells computer chose random word from above
             var word = wordArr[Math.floor(Math.random() * wordArr.length)];
-            for (i = 0; i < wordArr.length; i++) {
+            for (i = 0; i < word.length; i++) {
                 underscores = underscores + "_ "
             }
+            console.log(underscores)
+            console.log(word)
+            $("#guessword").text(underscores)
 
-            //form is lnked to java script
+            //form is lnked to click
             $("#buttonguess").on("click", function () {
-                var letter = $("#letter").val();
+                var letter = $("#letter").val(); 
+                for (var i = 0; i < word.length; i++) {
+                    if (
+                        letter.toLowerCase()=== word[i]
+                    )
+                    {
 
+                        console.log("right guess")
+                    }
+                }
             });
 
-            function letterinword(c) {
-                if
+            function letterinword(c) { if 
 
-         }
+            }
 
         });
 
@@ -43,12 +63,7 @@
 
 
     </script>
-    <h1>Guess a letter</h1>
-    <input id="letter" type="text">
-    <input type="button" value="Guess" id="buttonguess">
-    <p class"answer"></p>
-    <p class"counter"></p>
-    <p class"stats"></p>
+  
 
 </body>
 
