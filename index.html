@@ -14,10 +14,10 @@
         <h1>Guess a letter</h1>
         <input id="letter" type="text">
         <input type="button" value="Guess" id="buttonguess">
+        <p class="answer1"></p>
+        <p class="answer2"></p>
         <p class="answer"></p>
-        <p class="answer"></p>
-        <p class="answer"></p>
-        <h1 id="guessword"></h1>
+        <h1 id="guessword" style="letter-spacing: 3px;"></h1>
     
     
         <script>
@@ -27,31 +27,35 @@
             //Words that the computer can choose from
             var wordArr = ["cat", "dog", "bat", "car", "bar", "far"];
             var underscores = "";
-
+             var timeswon = 0
             //This tells computer chose random word from above
             var word = wordArr[Math.floor(Math.random() * wordArr.length)];
             for (i = 0; i < word.length; i++) {
-                underscores = underscores + "_ "
+                underscores = underscores + "_"
             }
-            console.log(underscores)
+            
             console.log(word)
             $("#guessword").text(underscores)
+           
 
             //form is lnked to click
             $("#buttonguess").on("click", function () {
                 var letter = $("#letter").val(); 
                 for (var i = 0; i < word.length; i++) {
-                    if (
-                        letter.toLowerCase()=== word[i]
-                    )
+                    if ( letter.toLowerCase()=== word[i])
                     {
 
-                        console.log("right guess")
+                       alert("right guess")
+                        underscores[i]=letter;
+                        var newVal=underscores.substring(0, i) + letter + underscores.substring(i + 1);
+                        underscores=newVal;
+                        $("#guessword").text(newVal);
+                        console.log(underscores);
                     }
                 }
             });
 
-            function letterinword(c) { if 
+            function letterinword(c) {
 
             }
 
