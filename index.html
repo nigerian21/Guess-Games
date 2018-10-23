@@ -10,45 +10,71 @@
 </head>
 
 <body>
-
-        <h1>Guess a letter</h1>
+    <style>
+        body{
+            text-align: center;
+            background-image: url(http://mymodernmet.com/wp/wp-content/uploads/2017/01/animal-selfies-thumbnail.jpg);
+            font-size: 15px;
+            color: white;
+            margin: 10px;
+            padding: 1in;
+            border-width: 1in;
+            border-color: blue;
+        }
+        .guessing{
+            width: 400px;
+            height: 400px;
+            border: 6px dashed black;
+            position: relative;
+            left: 5in;
+        }
+        
+        </style>
+    <div class="guessing"> 
+        <h1> Guess a letter</h1>
         <input id="letter" type="text">
         <input type="button" value="Guess" id="buttonguess">
-        <p class="answer1"></p>
-        <p class="answer2"></p>
-        <p class="answer"></p>
         <h1 id="guessword" style="letter-spacing: 3px;"></h1>
-    
-    
-        <script>
+        <p id="won"></p>
+        <p id="lost"> </p>
+        <p class="answer"></p>
+    </div>
+
+
+
+    <script>
 
 
         $(document).ready(function () {
             //Words that the computer can choose from
             var wordArr = ["cat", "dog", "bat", "car", "bar", "far"];
             var underscores = "";
-             var timeswon = 0
+            //setting up score
+            var timeswon = "Times won: " + 0
+            var timeslost = "Times lost: " + 0
             //This tells computer chose random word from above
             var word = wordArr[Math.floor(Math.random() * wordArr.length)];
             for (i = 0; i < word.length; i++) {
                 underscores = underscores + "_"
             }
-            
+
+            //Asigning underscores to guessword div    
             console.log(word)
             $("#guessword").text(underscores)
-           
+            $("#won").text(timeswon)
+            $("#lost").text(timeslost)
+
 
             //form is lnked to click
             $("#buttonguess").on("click", function () {
-                var letter = $("#letter").val(); 
+                var letter = $("#letter").val();
                 for (var i = 0; i < word.length; i++) {
-                    if ( letter.toLowerCase()=== word[i])
-                    {
+                    if (letter.toLowerCase() === word[i]) {
 
-                       alert("right guess")
-                        underscores[i]=letter;
-                        var newVal=underscores.substring(0, i) + letter + underscores.substring(i + 1);
-                        underscores=newVal;
+                        alert("right guess")
+                        underscores[i] = letter;
+                        var newVal = underscores.substring(0, i) + letter + underscores.substring(i + 1);
+                        underscores = newVal;
                         $("#guessword").text(newVal);
                         console.log(underscores);
                     }
@@ -67,7 +93,7 @@
 
 
     </script>
-  
+
 
 </body>
 
